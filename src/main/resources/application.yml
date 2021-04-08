@@ -1,0 +1,37 @@
+#开启debug模式之后，可以查看SpringBoot启动时加载自动装配类
+#debug: true
+
+spring:
+  #国际化配置
+  messages:
+    basename: public.i18n.message
+  #数据源配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/mybatis_demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #SpringMVC配置，日期格式化
+  mvc:
+    format:
+      date-time: yyyy-MM-dd HH:mm:ss
+      date: yyyy-MM-dd
+      time: HH:mm:ss
+
+#mybatis配置
+mybatis:
+  type-aliases-package: com.miracle.springframework.boot.entity
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  #mybatis的setting
+  configuration:
+    map-underscore-to-camel-case: true
+    default-executor-type: reuse
+    cache-enabled: true
+
+#强制设置UTF-8字符集编码
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
